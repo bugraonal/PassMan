@@ -14,7 +14,7 @@ public class StorageFile {
 		Mac SHA25;
 		try {
 			SHA25 = Mac.getInstance("HmacSHA256"); // Java Consistency:tm:
-													// HmacSHA256 and SHA-256
+			// HmacSHA256 and SHA-256
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 			SHA25 = null;
@@ -29,7 +29,7 @@ public class StorageFile {
 	private File load;
 
 	public static StorageFile load(File file) throws IOException {
-		StorageFile dFile = new DatabaseFile();
+		StorageFile dFile = new StorageFile();
 		dFile.load = file;
 		// TODO read file with master password and salt
 	}
