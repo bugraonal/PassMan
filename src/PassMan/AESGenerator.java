@@ -10,11 +10,10 @@ public class AESGenerator {
 	private SecretKey key;
 	private static final String ALGORITHM = "AES";
 	
-	public AESGenerator(String password, byte[] salt) {
+	public AESGenerator(String password) {
 		try {
-			this.salt = salt;
 			this.password = password;
-			// might add nopadding later on
+			// might add nopadding later on so ill keep try catch for now
 		} catch (InvalidKeySpecException | NoSuchAlgorithmException | NoSuchPaddingException e) {
 			throw new RuntimeException("oops", e);
 		}
@@ -27,20 +26,20 @@ public class AESGenerator {
 		key = keyGen.generateKey();
 	}
 
-	public String encrypt(byte[] bytes) {
+	public String encrypt(String pass) {
 		initRandom();
 		Cipher c = Cipher.getInstance(ALGORITHM);
         	c.init(Cipher.ENCRYPT_MODE, key);
-        	byte[] encVal = c.doFinal(data.getBytes());
+        	byte[] encVal = c.doFinal(pass.getBytes());
         	return Base64.getEncoder().encodeToString(encVal);
 	}
 
-	public String decrypt(byte[] bytes) {
+	public String decrypt(String encryptedPass) {
 		initRandom();
 		Cipher c = Cipher.getInstance(ALGORITHM);
        	 	c.init(Cipher.DECRYPT_MODE, key);
-       	 	byte[] decordedValue = Base64.getDecoder().decode(encryptedData);
-        	byte[] decValue = c.doFinal(decordedValue);
+       	 	byte[] decodedValue = Base64.getDecoder().decode(encryptedPass);
+        	byte[] decValue = c.doFinal(decodedValue);
         	return new String(decValue);
 	}
 }
