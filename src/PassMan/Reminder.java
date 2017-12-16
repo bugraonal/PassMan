@@ -1,6 +1,8 @@
 package PassMan;
 
-import java.util.GregorianCalendar;;
+import java.util.GregorianCalendar;
+//import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Reminder {
 	
@@ -50,7 +52,30 @@ public class Reminder {
 	 * The structure will be Y:M:D
 	 */
 	public String dispRemainingTime(){
-		//WILL IMPLEMENT THIS
-		return "";
+		
+		GregorianCalendar now = new GregorianCalendar();
+		int year = now.get(GregorianCalendar.YEAR);
+		int month = now.get(GregorianCalendar.MONTH);
+		int day = now.get(GregorianCalendar.DAY_OF_MONTH);
+		
+		GregorianCalendar remaining = dueDate;
+		remaining.add(GregorianCalendar.YEAR, -year);
+		remaining.add(GregorianCalendar.MONTH, -month);
+		remaining.add(GregorianCalendar.DAY_OF_MONTH, -day);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+		return sdf.format(remaining.getTime());
+	}
+	/*
+	 * This function is used to detect wether the time is up for the reminder or 
+	 * not
+	 * This operation will be performed each time the corresponding profile
+	 * is logged into
+	 * Currently the function outputs true for any time before it's due 
+	 * date with a precision of miliseconds. 
+	 * 
+	 */
+	public boolean checkDue(){
+		return dueDate.before(new GregorianCalendar());
 	}
 }
