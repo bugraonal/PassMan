@@ -10,13 +10,14 @@ public class AESGenerator {
 	private SecretKey key;
 	private static final String ALGORITHM = "AES";
 	
-	public AESGenerator(String password) {
-		try {
-			this.password = password;
-			// might add nopadding later on so ill keep try catch for now
+	public AESGenerator() {
+		/*try {
+
 		} catch (InvalidKeySpecException | NoSuchAlgorithmException | NoSuchPaddingException e) {
 			throw new RuntimeException("oops", e);
-		}
+		}*/
+		
+		// might add nopadding later on so ill keep try catch for now
 	}
 	
 	public void initRandom() {
