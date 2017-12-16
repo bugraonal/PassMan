@@ -72,7 +72,7 @@ public class Reminder {
 	 * This operation will be performed each time the corresponding profile
 	 * is logged into
 	 * Currently the function outputs true for any time before it's due 
-	 * date with a precision of miliseconds. 
+	 * date with a precision of miliseconds. .
 	 * 
 	 */
 	public boolean checkDue(){
