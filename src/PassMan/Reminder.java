@@ -1,7 +1,7 @@
 package PassMan;
 
 import java.util.GregorianCalendar;
-//import java.util.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public class Reminder {
@@ -54,10 +54,16 @@ public class Reminder {
 	public String dispRemainingTime(){
 		
 		GregorianCalendar now = new GregorianCalendar();
-		int year = now.get(GregorianCalendar.YEAR);
-		int month = now.get(GregorianCalendar.MONTH);
-		int day = now.get(GregorianCalendar.DAY_OF_MONTH);
+		long untilNow = now.getTime().getTime();
+		long untilDue = dueDate.getTime().getTime();
 		
+		long remaining = untilDue - untilNow;
+		long year = (remaining/365/24/60/60/1000);
+		long month = (long) ((year - Math.floor(year))*365/12);
+		long day = (long) ((month - Math.floor(month))*12);
+		
+		return (int)year + "." + (int)month + "." + (int)day;
+		/*
 		GregorianCalendar remaining = dueDate;
 		remaining.add(GregorianCalendar.YEAR, -year);
 		remaining.add(GregorianCalendar.MONTH, -month);
@@ -65,6 +71,12 @@ public class Reminder {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 		return sdf.format(remaining.getTime());
+		*/
+	}
+	
+	public String dispDueDate(){
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+		return sdf.format(dueDate.getTime());
 	}
 	/*
 	 * This function is used to detect wether the time is up for the reminder or 
@@ -72,10 +84,17 @@ public class Reminder {
 	 * This operation will be performed each time the corresponding profile
 	 * is logged into
 	 * Currently the function outputs true for any time before it's due 
-	 * date with a precision of miliseconds. .
+	 * date with a precision of milliseconds. .
 	 * 
 	 */
 	public boolean checkDue(){
 		return dueDate.before(new GregorianCalendar());
+	}
+	/*
+	 * This function will be called when the password is due for change and the user
+	 * chooses to update it
+	 */
+	public void updatePass(){
+		//generate new password
 	}
 }
