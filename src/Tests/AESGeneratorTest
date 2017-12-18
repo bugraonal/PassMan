@@ -11,9 +11,9 @@ public class AESGeneratorTest {
 	@Test
 	public void testEncryption(){
 		AESGenerator enc = new AESGenerator();
-    
-    String testString = "testpass";
-    encryptedPass = enc.encrypt(testString);
-    
-    assertArrayEquals(testString, enc.decrypt(encryptedPass));
+		
+		String testString = "testpass";
+		encryptedPass = enc.encrypt(testString);
+
+		assertArrayEquals(testString, enc.decrypt(encryptedPass));
 	}
