@@ -15,22 +15,27 @@ Java 6 or later
 ### General folder structure
 In general, we agreed on an MVC structure. 
 
-There are three different folders called 
+There are four different folders called 
 * GUI
-* GUIListener
+* GUIListeners
 * PassMan
+* Tests
 
 #### GUI
 
 In GUI we keep the user interface of the software. All view related methods and functionalities will be here.
 
-#### GUIListener
+#### GUIListeners
 
 This is where we create the listeners that the user interface will use to communicate with the user. Any graphical changes requiring input will reside here.
 
 #### PassMan
 
 Here we keep all non-view related source. Database IO, Passman execution, AES/SHA256 encryption and so will have their sources here.
+
+#### Tests
+
+All of our tests will be here. The tests will be done with JUnit. If any test fail we should create an issue for that test.
 
 ## Documents
 
@@ -46,7 +51,7 @@ seperate branch with
 git checkout -b <things-that-you're-going-to-change>
 ```
 and after testing it thoroughly, merge it to master and inform your
-partner about master changes. 
+partners about master changes. 
 
 ## Authors
 * **Emir Ünlütürk**
