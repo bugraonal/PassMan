@@ -13,7 +13,7 @@ public class AESGeneratorTest {
 		AESGenerator enc = new AESGenerator();
 		
 		String testString = "testpass";
-		encryptedPass = enc.encrypt(testString);
+		byte[] encryptedPass = enc.encrypt(testString);
 
 		assertArrayEquals(testString, enc.decrypt(encryptedPass));
 	}
