@@ -1,19 +1,19 @@
 package Tests;
 
-import static org.junit.Assert.*;
-
+import org.junit.Assert;
 import org.junit.Test;
 
-import PassMan.Reminder;
+import PassMan.AESGenerator;
 
-public class ReminderTest {
+public class AESGeneratorTest {
 
 	@Test
-	public void test1(){
-		Reminder rem = new Reminder();
-		rem.setDueDate(23, "months");
-		System.out.println(rem.dispDueDate());
-		System.out.println(rem.dispRemainingTime());
-	}
+	public void testEncryption() throws Exception{
+		AESGenerator enc = new AESGenerator();
+		
+		String testString = "testpass";
+		byte[] encryptedPass = enc.encrypt(testString);
 
+		Assert.assertEquals(testString, enc.decrypt(encryptedPass));
+	}
 }
