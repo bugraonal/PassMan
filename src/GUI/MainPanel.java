@@ -19,7 +19,9 @@ import javax.swing.JSeparator;
 public class MainPanel extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
-	public MainPanel() { //link with database here
+	private GUI gui;
+	public MainPanel(GUI gui) { //link with database here
+		this.gui = gui;
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
@@ -54,8 +56,7 @@ public class MainPanel extends JPanel {
 			
 			JPanel panel_1 = new ModifyPanel();//link database here too
 			tabbedPane.addTab("Management", null, panel_1, null);
-			
-		
+
 	}
 	public void copyStringToClipboard(String str) { //might be interesting 
 		  StringSelection stringSelection = new StringSelection(str);

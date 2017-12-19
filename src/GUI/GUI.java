@@ -17,7 +17,6 @@ public class GUI extends JFrame {
 		mainPanel = null;
 		loginPanel = null;
 		navigationBar = null;
-		contentPanel= new JPanel();
 		initFrame();
 	}
 
@@ -25,25 +24,8 @@ public class GUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("PassMan");
 		setResizable(false);
-		//setSize(450, 299);
-		setDynamicSize();
+		setSize(450, 299);
 		setVisible(true);
-		add(contentPanel);
-	}
-
-	private void setDynamicSize() {
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		int width = (int) (screenSize.getWidth() / 4);
-		int height = (int) screenSize.getHeight() - getTaskBarHeight() - 300;
-		int yPos = 0;
-		int xPos = (int) (screenSize.getWidth() - width);
-		setBounds(xPos, yPos, width, height);
-	}
-	
-	private int getTaskBarHeight() {
-		int taskBarHeight = Toolkit.getDefaultToolkit().getScreenInsets(
-				getGraphicsConfiguration()).bottom;
-		return taskBarHeight;
 	}
 
 	public void printLoginPanel() {
@@ -56,5 +38,18 @@ public class GUI extends JFrame {
 		getContentPane().validate();
 	}
 	
-	// I'm leaving GUI related stuff to Onur
+	public void printMainPanel() {
+		getContentPane().removeAll();
+		getContentPane().setLayout(new BorderLayout());
+		if (navigationBar == null)
+			navigationBar = new NavigationBar(this);
+		if (mainPanel == null)
+			mainPanel = new MainPanel(this);
+
+		getContentPane().add(navigationBar, BorderLayout.NORTH);
+		getContentPane().add(mainPanel, BorderLayout.CENTER);
+		
+		getContentPane().repaint();
+		getContentPane().validate();
+	}
 }
