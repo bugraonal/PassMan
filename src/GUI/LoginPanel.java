@@ -15,7 +15,7 @@ public class LoginPanel extends JPanel {
 	private JPasswordField passwordField;
 	public LoginPanel() {
 		securityCheck = false;
-		setBorder(new EmptyBorder(100, 20, 100, 20)); //make this dynamic later
+		setBorder(new EmptyBorder(120, 20, 120, 20)); //make this dynamic later
 		setLayout(new GridLayout(0, 1, 0, 10));
 		
 		JLabel enterLabel = new JLabel("Enter your password");
@@ -23,6 +23,7 @@ public class LoginPanel extends JPanel {
 		add(enterLabel);
 		
 		passwordField = new JPasswordField();
+		passwordField.setHorizontalAlignment(SwingConstants.LEFT);
 		passwordField.addActionListener(new ActionListener() {		
 			@Override
 			public void actionPerformed(ActionEvent e) {

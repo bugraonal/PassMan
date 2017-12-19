@@ -1,5 +1,5 @@
 package GUIListeners;
 
 public class GUIListener {
-	// Onur do this thanks
+	// Onur do this, thanks
 }

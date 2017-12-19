@@ -3,6 +3,9 @@ package GUI;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -39,5 +42,4 @@ public class ModifyPanel extends JPanel {
 			add(reminderButton);
 
 	}
-
 }
