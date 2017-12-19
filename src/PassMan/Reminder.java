@@ -3,6 +3,7 @@ package PassMan;
 import java.util.GregorianCalendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.concurrent.TimeUnit;
 
 public class Reminder {
 	
@@ -58,11 +59,9 @@ public class Reminder {
 		long untilDue = dueDate.getTime().getTime();
 		
 		long remaining = untilDue - untilNow;
-		long year = (remaining/365/24/60/60/1000);
-		long month = (long) ((year - Math.floor(year))*365/12);
-		long day = (long) ((month - Math.floor(month))*12);
+		long day = TimeUnit.MILLISECONDS.toDays(remaining);
 		
-		return (int)year + "." + (int)month + "." + (int)day;
+		return day + " days to next update";
 		/*
 		GregorianCalendar remaining = dueDate;
 		remaining.add(GregorianCalendar.YEAR, -year);
