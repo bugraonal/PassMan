@@ -12,6 +12,13 @@ public class Reminder {
 	private int type;
 	private int amount;
 	
+	/*
+	 * These can be used while setting due dates
+	 */
+	public static final String YEARS = "years";
+	public static final String MONTHS = "months";
+	public static final String DAYS = "days";
+	
 	public Reminder(){
 		creation = new GregorianCalendar();
 		dueDate = creation;
@@ -60,8 +67,11 @@ public class Reminder {
 		
 		long remaining = untilDue - untilNow;
 		long day = TimeUnit.MILLISECONDS.toDays(remaining);
+		int years = (int)day/364;
+		int months = (int) (day%364)/30;
+		int days = (int) ((day%364)%30);
 		
-		return day + " days to next update";
+		return years + "." + months + "." + days;
 		/*
 		GregorianCalendar remaining = dueDate;
 		remaining.add(GregorianCalendar.YEAR, -year);
