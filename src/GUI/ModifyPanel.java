@@ -16,7 +16,7 @@ public class ModifyPanel extends JPanel {
 		
 		//panel layout
 		setLayout(new GridLayout(3, 2, 0, 0)); //grid layout for the side by side 
-		setBorder(new EmptyBorder(100, 10, 100, 10));//border so it doesnt go across the entire panel 
+		setBorder(new EmptyBorder(80, 10, 80, 10));//border so it doesnt go across the entire panel 
 		
 		//panel elements
 		//side by side elements are indented 

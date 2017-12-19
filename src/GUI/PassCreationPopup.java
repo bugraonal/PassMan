@@ -24,11 +24,11 @@ public class PassCreationPopup extends JFrame {
 		    	labels.add(new JLabel("Password", SwingConstants.RIGHT));
 	    panel.add(labels, BorderLayout.WEST);
 	    
-	    JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
-	    	usernameField = new JTextField();
-	    	controls.add(usernameField);
-	    	passwordField  = new JPasswordField();
-	    	controls.add(passwordField);
+		    JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
+		    	usernameField = new JTextField();
+		    	controls.add(usernameField);
+		    	passwordField  = new JPasswordField();
+		    	controls.add(passwordField);
 	    panel.add(controls, BorderLayout.CENTER);	
 	}
 	public void showDialog(){

@@ -9,14 +9,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.BorderLayout;
 
 public class LoginPanel extends JPanel {
 	private boolean securityCheck;
 	private JPasswordField passwordField;
 	public LoginPanel() {
 		securityCheck = false;
-		setBorder(new EmptyBorder(120, 20, 120, 20)); //make this dynamic later
-		setLayout(new GridLayout(0, 1, 0, 10));
+		setBorder(new EmptyBorder(80, 20, 80, 20)); //make this dynamic later
+		setLayout(new GridLayout(3, 1, 0, 10));
 		
 		JLabel enterLabel = new JLabel("Enter your password");
 		enterLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -31,6 +33,14 @@ public class LoginPanel extends JPanel {
 			}
 		});
 		add(passwordField);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new EmptyBorder(0, 150, 5, 150));
+		add(panel);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		JButton btnNewButton = new JButton("Enter");
+		panel.add(btnNewButton);
 		
 	}
 	public boolean login(){

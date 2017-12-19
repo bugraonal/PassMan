@@ -33,18 +33,18 @@ public class MainPanel extends JPanel {
 		add(tabbedPane, BorderLayout.CENTER);
 		
 			JPanel credentialsPanel = new JPanel(); //indented panel elements for better visibility
-			credentialsPanel.setBorder(new EmptyBorder(100, 10, 100, 10));
+			credentialsPanel.setBorder(new EmptyBorder(80, 10, 80, 10));
 			tabbedPane.addTab("Credentials", null, credentialsPanel, null);
 			credentialsPanel.setLayout(new GridLayout(0, 2, 0, 0)); //panel layout
 			
-				JLabel usernameLabel = new JLabel("New label");
+				JLabel usernameLabel = new JLabel("Username");
 				credentialsPanel.add(usernameLabel);
 			
 				textField = new JTextField();
 				credentialsPanel.add(textField);
 				textField.setColumns(10);
 			
-				JLabel passwordLabel = new JLabel("New label");
+				JLabel passwordLabel = new JLabel("Password");
 				credentialsPanel.add(passwordLabel);
 			
 				textField_1 = new JTextField();
@@ -52,8 +52,8 @@ public class MainPanel extends JPanel {
 				textField_1.setColumns(10);
 			
 			
-			JPanel panel_1 = new ModifyPanel();//link database here too
-			tabbedPane.addTab("Management", null, panel_1, null);
+			JPanel managementPanel = new ModifyPanel();//link database here too
+			tabbedPane.addTab("Management", null, managementPanel, null);
 			
 		
 	}

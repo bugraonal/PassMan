@@ -17,22 +17,25 @@ public class GUI extends JFrame {
 		mainPanel = null;
 		loginPanel = null;
 		navigationBar = null;
-		contentPanel= new JPanel();
 		initFrame();
+		printLoginPanel();
+		invalidate();
+		validate();
+		repaint();
 	}
 
 	private void initFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("PassMan");
 		setResizable(false);
-		setSize(450, 299);
-		add(contentPanel);
+		setSize(450, 300);
+		contentPanel= new LoginPanel();
+		getContentPane().add(contentPanel);
+		setVisible(true);
 	}
 
 	public void printLoginPanel() {
-		contentPanel = new LoginPanel();
-		validate();
+		contentPanel = new JPanel();
+		
 	}
-	
-	// I'm leaving GUI related stuff to Onur
 }
