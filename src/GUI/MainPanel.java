@@ -13,12 +13,21 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.GridLayout;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JList;
+import javax.swing.JSeparator;
 
 public class MainPanel extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	public MainPanel() { //link with database here
 		setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new EmptyBorder(0, 50, 0, 50));
+		add(panel, BorderLayout.WEST);
+		
+		JList list = new JList();
+		panel.add(list);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP); //indented tabs for better visibility
 		add(tabbedPane, BorderLayout.CENTER);

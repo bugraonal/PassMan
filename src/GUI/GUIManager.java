@@ -9,6 +9,7 @@ public class GUIManager {
 
 	public void printLoginPanel() {
 		gui.printLoginPanel();
+		
 	}
 
 }
