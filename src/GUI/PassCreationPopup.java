@@ -48,11 +48,4 @@ public class PassCreationPopup extends JFrame {
 		passwordField.setText(null);
 	}
 	
-	public static void main(String[] args) {
-		PassCreationPopup test = new PassCreationPopup();
-		test.showDialog();
-		System.out.println(test.getUsername());
-		test.clean();
-	}
-
 }
