@@ -12,4 +12,8 @@ public class GUIManager {
 		
 	}
 
+	public void printMainPanel() {
+		gui.printMainPanel();
+	}
+
 }

@@ -17,7 +17,6 @@ public class GUI extends JFrame {
 		mainPanel = null;
 		loginPanel = null;
 		navigationBar = null;
-		contentPanel= new JPanel();
 		initFrame();
 	}
 
@@ -26,13 +25,31 @@ public class GUI extends JFrame {
 		setTitle("PassMan");
 		setResizable(false);
 		setSize(450, 299);
-		add(contentPanel);
+		setVisible(true);
 	}
 
 	public void printLoginPanel() {
-		contentPanel = new LoginPanel();
-		validate();
+		getContentPane().removeAll();
+		if (loginPanel == null)
+			loginPanel = new LoginPanel(this);
+		loginPanel.printLoginPanel();
+		add(loginPanel);
+		getContentPane().repaint();
+		getContentPane().validate();
 	}
 	
-	// I'm leaving GUI related stuff to Onur
+	public void printMainPanel() {
+		getContentPane().removeAll();
+		getContentPane().setLayout(new BorderLayout());
+		if (navigationBar == null)
+			navigationBar = new NavigationBar(this);
+		if (mainPanel == null)
+			mainPanel = new MainPanel(this);
+
+		getContentPane().add(navigationBar, BorderLayout.NORTH);
+		getContentPane().add(mainPanel, BorderLayout.CENTER);
+		
+		getContentPane().repaint();
+		getContentPane().validate();
+	}
 }

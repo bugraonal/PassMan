@@ -11,16 +11,32 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class LoginPanel extends JPanel {
-	private boolean securityCheck;
+	private boolean securityCheck = false;
 	private JPasswordField passwordField;
-	public LoginPanel() {
-		securityCheck = false;
-		setBorder(new EmptyBorder(120, 20, 120, 20)); //make this dynamic later
-		setLayout(new GridLayout(0, 1, 0, 10));
+	private GUI gui;
+	private JPanel loginPanel;
+	
+	public LoginPanel(GUI gui) {
+		this.gui = gui;
+		setBounds(gui.getBounds());
+		setOpaque(false);
+	}
+
+	public void printLoginPanel() {
+		removeAll();
+		if (loginPanel == null)
+			createLoginPanel();
+		add(loginPanel);
+}
+	
+	private void createLoginPanel() {
+		loginPanel = new JPanel();
+		loginPanel.setBorder(new EmptyBorder(120, 20, 120, 20)); //make this dynamic later
+		loginPanel.setLayout(new GridLayout(0, 1, 0, 10));
 		
 		JLabel enterLabel = new JLabel("Enter your password");
 		enterLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		add(enterLabel);
+		loginPanel.add(enterLabel);
 		
 		passwordField = new JPasswordField();
 		passwordField.setHorizontalAlignment(SwingConstants.LEFT);
@@ -30,9 +46,10 @@ public class LoginPanel extends JPanel {
 				passwordCheck(passwordField.getPassword());
 			}
 		});
-		add(passwordField);
 		
+		loginPanel.add(passwordField);
 	}
+
 	public boolean login(){
 		return securityCheck;
 	}
