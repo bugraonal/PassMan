@@ -2,6 +2,8 @@ package PassMan;
 
 import java.util.GregorianCalendar;
 import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
 
@@ -11,6 +13,8 @@ public class Reminder {
 	private GregorianCalendar dueDate;
 	private int type;
 	private int amount;
+	private String url;
+	private String user;
 	
 	/*
 	 * These can be used while setting due dates
@@ -19,11 +23,24 @@ public class Reminder {
 	public static final String MONTHS = "months";
 	public static final String DAYS = "days";
 	
-	public Reminder(){
+	public Reminder(String user, String url){
 		creation = new GregorianCalendar();
 		dueDate = creation;
 		type = GregorianCalendar.DAY_OF_MONTH;
 		amount = 1;
+		this.user = user;
+		this.url = url;
+	}
+	
+	public Reminder (String user, String url, String date) throws ParseException{
+		type = GregorianCalendar.DAY_OF_MONTH;
+		amount = 1;
+		this.user = user;
+		this.url = url;
+		dueDate = new GregorianCalendar();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+		dueDate.setTime(sdf.parse(date));
+		
 	}
 	
 //	This function will be used to initialize the due date
@@ -33,6 +50,8 @@ public class Reminder {
 //	The function will also set the amount and type global variables
 //	to enable easier updates
 	
+
+
 	public void setDueDate(int amount, String type){ 
 		this.amount = amount;
 		if (type.equals("days")){
@@ -106,4 +125,15 @@ public class Reminder {
 	public void updatePass(){
 		//generate new password
 	}
+
+	public String getUser() {
+		// TODO Auto-generated method stub
+		return user;
+	}
+
+	public String getUrl() {
+		// TODO Auto-generated method stub
+		return url;
+	}
+
 }
