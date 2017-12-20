@@ -18,24 +18,38 @@ public class GUI extends JFrame {
 		loginPanel = null;
 		navigationBar = null;
 		initFrame();
-		printLoginPanel();
-		invalidate();
-		validate();
-		repaint();
 	}
 
 	private void initFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("PassMan");
 		setResizable(false);
-		setSize(450, 300);
-		contentPanel= new LoginPanel();
-		getContentPane().add(contentPanel);
+		setSize(450, 299);
 		setVisible(true);
 	}
 
 	public void printLoginPanel() {
-		contentPanel = new JPanel();
+		getContentPane().removeAll();
+		if (loginPanel == null)
+			loginPanel = new LoginPanel(this);
+		loginPanel.printLoginPanel();
+		add(loginPanel);
+		getContentPane().repaint();
+		getContentPane().validate();
+	}
+	
+	public void printMainPanel() {
+		getContentPane().removeAll();
+		getContentPane().setLayout(new BorderLayout());
+		if (navigationBar == null)
+			navigationBar = new NavigationBar(this);
+		if (mainPanel == null)
+			mainPanel = new MainPanel(this);
+
+		getContentPane().add(navigationBar, BorderLayout.NORTH);
+		getContentPane().add(mainPanel, BorderLayout.CENTER);
 		
+		getContentPane().repaint();
+		getContentPane().validate();
 	}
 }
