@@ -1,5 +1,6 @@
 package PassMan;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class ReminderManager extends PreferencesFile{
 	private ArrayList<Reminder> reminders;
 	
 	public ReminderManager(){
-		
+		setFile(new File("passmanremindersdb.xml"));
 	}
 	public void checkAll(){
 		for(int i = 0; i<reminders.size();i++){
@@ -63,6 +64,7 @@ public class ReminderManager extends PreferencesFile{
 	}
 	
 	public ArrayList<Reminder> getReminders() throws ParseException, SAXException, IOException, ParserConfigurationException, TransformerException{
+		reminders = new ArrayList<Reminder>();
 		Document doc = parseFile();
 		doc.getDocumentElement().normalize();
 
