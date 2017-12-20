@@ -27,10 +27,10 @@ public class PreferencesFile {
 	
 	public PreferencesFile() throws ParserConfigurationException, IOException, TransformerException, SAXException { // if no file, create new
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = dbf.newDocumentBuilder();            
-        Document document = db.newDocument();
-        Element element = document.createElement("root");
-        document.appendChild(element);
+        	DocumentBuilder db = dbf.newDocumentBuilder();            
+        	Document document = db.newDocument();
+        	Element element = document.createElement("root");
+        	document.appendChild(element);
 	}
 	
 	public Document parseFile() throws SAXException, IOException, ParserConfigurationException {
@@ -45,14 +45,12 @@ public class PreferencesFile {
 	public void updateFile(Document doc) throws IOException, TransformerException {
 		DOMSource source = new DOMSource(doc);
 
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        Transformer transformer = transformerFactory.newTransformer();
-        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        StreamResult result = new StreamResult(file);
-        transformer.transform(source, result);
-		System.out.println("Updated File!");
-
+        	TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        	Transformer transformer = transformerFactory.newTransformer();
+        	transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        	transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        	StreamResult result = new StreamResult(file);
+        	transformer.transform(source, result);
 	}
 	
 	public void readFile(Document docu) throws SAXException, IOException, ParserConfigurationException { // this is for tests dont use
@@ -69,21 +67,21 @@ public class PreferencesFile {
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				Element elem = (Element) nNode;
 
-                 // Get the value of all sub-elements.
-                 String url = elem.getElementsByTagName("url")
+			 	// Get the value of all sub-elements.
+                 		String url = elem.getElementsByTagName("url")
                                      .item(0).getChildNodes().item(0).getTextContent();
 
-                 String user = elem.getElementsByTagName("user").item(0)
+                 		String user = elem.getElementsByTagName("user").item(0)
                                      .getChildNodes().item(0).getTextContent();
 
-                 String pass = elem.getElementsByTagName("pass")
+                 		String pass = elem.getElementsByTagName("pass")
                                      .item(0).getChildNodes().item(0).getTextContent();
 
 
-                 siteList.add(new Site(url, user, pass));
+                 		siteList.add(new Site(url, user, pass));
 
-            }
-       }
+            		}
+       		}
 
 	}
 	
@@ -95,23 +93,22 @@ public class PreferencesFile {
 		siteList.add(new Site(url, user, pass));
 		
 		for (Site site : siteList) {
-            // server elements
-            Element newSite = docu.createElement("site");
+            		Element newSite = docu.createElement("site");
             
-            Element newUrl = docu.createElement("url");
-            newUrl.appendChild(docu.createTextNode(site.getUrl()));
-            newSite.appendChild(newUrl);
+            		Element newUrl = docu.createElement("url");
+            		newUrl.appendChild(docu.createTextNode(site.getUrl()));
+            		newSite.appendChild(newUrl);
 
-            Element newUser = docu.createElement("user");
-            newUser.appendChild(docu.createTextNode(site.getUser()));
-            newSite.appendChild(newUser);
+            		Element newUser = docu.createElement("user");
+            		newUser.appendChild(docu.createTextNode(site.getUser()));
+            		newSite.appendChild(newUser);
 
-            Element newPass = docu.createElement("pass");
-            newPass.appendChild(docu.createTextNode(site.getPass()));
-            newSite.appendChild(newPass);
+            		Element newPass = docu.createElement("pass");
+            		newPass.appendChild(docu.createTextNode(site.getPass()));
+            		newSite.appendChild(newPass);
 
-            root.appendChild(newSite);
-        }
+            		root.appendChild(newSite);
+        	}
 		
 		updateFile(docu);
 	}
@@ -127,8 +124,8 @@ public class PreferencesFile {
 			this.pass = pass;
 		}
 		public String getUrl() { return url; }
-        public String getUser() { return user; }
-        public String getPass() { return pass; }
+        	public String getUser() { return user; }
+        	public String getPass() { return pass; }
     }
 
 		
