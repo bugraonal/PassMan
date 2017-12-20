@@ -1,25 +1,24 @@
 package PassMan;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
+import org.xml.sax.SAXException;
 
 import GUI.GUIManager;
 
 public class PassMan {
-	private static final Logger LOG = Logger.getLogger(PassMan.class.getName());
 	private GUIManager gui;
 
-	public PassMan() {
+	public PassMan() throws SAXException, IOException, ParserConfigurationException, TransformerException {
 		gui = new GUIManager();
-		gui.printLoginPanel();
+		gui.printMainPanel();
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// This will be our testbed
-		try {
-			new PassMan();
-		} catch (Exception e) {
-			LOG.log(Level.CONFIG, "Could not set look and feel for the application", e);
-		}
+		new PassMan();
 	}
 }

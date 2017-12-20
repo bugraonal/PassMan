@@ -1,8 +1,14 @@
 package GUI;
 
 import java.awt.*;
+import java.io.IOException;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
+import org.xml.sax.SAXException;
 
 public class GUI extends JFrame {
 
@@ -38,7 +44,7 @@ public class GUI extends JFrame {
 		getContentPane().validate();
 	}
 	
-	public void printMainPanel() {
+	public void printMainPanel() throws SAXException, IOException, ParserConfigurationException, TransformerException {
 		getContentPane().removeAll();
 		getContentPane().setLayout(new BorderLayout());
 		if (navigationBar == null)

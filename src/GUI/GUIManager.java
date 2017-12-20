@@ -1,5 +1,12 @@
 package GUI;
 
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
+import org.xml.sax.SAXException;
+
 public class GUIManager {
 	private GUI gui;
 
@@ -12,7 +19,7 @@ public class GUIManager {
 		
 	}
 
-	public void printMainPanel() {
+	public void printMainPanel() throws SAXException, IOException, ParserConfigurationException, TransformerException {
 		gui.printMainPanel();
 	}
 

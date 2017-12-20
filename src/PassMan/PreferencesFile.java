@@ -90,8 +90,6 @@ public class PreferencesFile {
 
 		for (int temp = 0; temp < nList.getLength(); temp++) {
 			Node nNode = nList.item(temp);
-			System.out.println("\nCurrent Element :" + nNode.getNodeName());
-
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				Element elem = (Element) nNode;
 
@@ -108,12 +106,30 @@ public class PreferencesFile {
 		return sites;
 	}
 	
-	public List getURLs(Collection<Site> sites) {
-		List urls = new List();
+	public ArrayList<String> getURLs(Collection<Site> sites) {
+		ArrayList<String> urls = new ArrayList<String>();
 		for (Site site : sites) {
 			urls.add(site.getUrl());
 		}
 		return urls;
+	}
+	
+	public String getPass(String urlin, Collection<Site> sites) {
+		for (Site site : sites) {
+			if(urlin.equals(site.getUrl())){
+				return site.getPass();
+			} else ;
+		}
+		return null;
+	}
+	
+	public String getUser(String urlin, Collection<Site> sites) {
+		for (Site site : sites) {
+			if(urlin.equals(site.getUrl())){
+				return site.getUser();
+			} else ;
+		}
+		return null;
 	}
 
 	public void addSite(String url, String user, String pass)

@@ -22,7 +22,7 @@ public class ModifyPanel extends JPanel {
 		//panel elements
 		//side by side elements are indented 
 		//element above each other are separated by double new lines
-		JLabel namePassChangeLabel = new JLabel("Edit Credidentials");
+		JLabel namePassChangeLabel = new JLabel("Edit Credentials");
 		add(namePassChangeLabel);
 		
 			JButton namePassChangeButton = new JButton("Modify");
@@ -35,7 +35,7 @@ public class ModifyPanel extends JPanel {
 			add(namePassChangeButton);
 
 			
-		JLabel deleteLabel = new JLabel("Delete Credientials");
+		JLabel deleteLabel = new JLabel("Delete Credentials");
 		add(deleteLabel);
 			
 			JButton deleteButton = new JButton("Delete");
