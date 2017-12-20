@@ -31,20 +31,25 @@ public class PassCreationPopup extends JFrame {
 	public PassCreationPopup() {
 
 		panel = new JPanel(new BorderLayout(5, 5));
-		JPanel labels = new JPanel(new GridLayout(0, 1, 2, 2));
-		labels.add(new JLabel("URL", SwingConstants.RIGHT));
-		labels.add(new JLabel("Username", SwingConstants.RIGHT));
-		labels.add(new JLabel("Password", SwingConstants.RIGHT));
-		panel.add(labels, BorderLayout.WEST);
-
-		JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
-		urlField = new JTextField();
-		controls.add(urlField);
-		usernameField = new JTextField();
-		controls.add(usernameField);
-		passwordField = new JTextField();
-		controls.add(passwordField);
-		panel.add(controls, BorderLayout.CENTER);
+		
+		JPanel panel_1 = new JPanel();
+		panel.add(panel_1, BorderLayout.CENTER);
+				panel_1.setLayout(new BorderLayout(0, 0));
+				JPanel labels = new JPanel(new GridLayout(0, 1, 2, 2));
+				panel_1.add(labels, BorderLayout.WEST);
+				labels.add(new JLabel("URL", SwingConstants.RIGHT));
+				labels.add(new JLabel("Username", SwingConstants.RIGHT));
+				labels.add(new JLabel("Password", SwingConstants.RIGHT));
+		
+				JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
+				panel_1.add(controls);
+				urlField = new JTextField();
+				controls.add(urlField);
+				usernameField = new JTextField();
+				controls.add(usernameField);
+				passwordField = new JTextField();
+				controls.add(passwordField);
+		
 		JButton createPass = new JButton("Generate Pass");
 		createPass.addActionListener(new ActionListener() {
 			@Override
@@ -54,7 +59,9 @@ public class PassCreationPopup extends JFrame {
 				passwordField.setText(generatedPass);
 			}
 		});
-		controls.add(passwordField);
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.add(createPass);
+		panel.add(buttonPanel, BorderLayout.SOUTH);
 		
 		JButton addSite = new JButton("Add Site");
 		addSite.addActionListener(new ActionListener() {
@@ -78,6 +85,8 @@ public class PassCreationPopup extends JFrame {
 
 			}
 		});
+		buttonPanel.add(addSite);
+		add(panel);
 	}
 
 	public void showDialog() {

@@ -113,7 +113,7 @@ public class PreferencesFile {
 		}
 		return urls;
 	}
-	
+		
 	public String getPass(String urlin, Collection<Site> sites) {
 		for (Site site : sites) {
 			if(urlin.equals(site.getUrl())){
@@ -122,7 +122,7 @@ public class PreferencesFile {
 		}
 		return null;
 	}
-	
+		
 	public String getUser(String urlin, Collection<Site> sites) {
 		for (Site site : sites) {
 			if(urlin.equals(site.getUrl())){
@@ -174,6 +174,8 @@ public class PreferencesFile {
 			this.user = user;
 			this.pass = pass;
 		}
+		
+		
 
 		public String getUrl() {
 			return url;
