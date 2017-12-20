@@ -46,7 +46,6 @@ public class LoginPanel extends JPanel {
 				passwordCheck(passwordField.getPassword());
 			}
 		});
-		
 		loginPanel.add(passwordField);
 	}
 
