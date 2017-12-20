@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.xml.parsers.ParserConfigurationException;
@@ -27,8 +26,10 @@ public class PassCreationPopup extends JFrame {
 	private JTextField urlField;
 	private JTextField usernameField;
 	private JTextField passwordField;
+	private GUI gui;
 
-	public PassCreationPopup() {
+	public PassCreationPopup(GUI gui) {
+		this.gui = gui;
 		setSize(350,150);
 		panel = new JPanel(new BorderLayout(5, 5));
 		
@@ -48,6 +49,7 @@ public class PassCreationPopup extends JFrame {
 				usernameField = new JTextField();
 				controls.add(usernameField);
 				passwordField = new JTextField();
+				passwordField.setEditable(false);
 				controls.add(passwordField);
 		
 		JButton createPass = new JButton("Generate Pass");
@@ -81,7 +83,6 @@ public class PassCreationPopup extends JFrame {
 								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							}
-							dispose();
 					 }
 
 			}

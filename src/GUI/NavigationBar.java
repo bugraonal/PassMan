@@ -6,8 +6,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import GUIListeners.GUIListener;
-
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,7 +23,7 @@ public class NavigationBar extends JPanel{
 		newOption.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new PassCreationPopup().setVisible(true);;
+				new PassCreationPopup(gui).setVisible(true);
 				gui.getContentPane().repaint();
 				gui.getContentPane().validate();
 			}
