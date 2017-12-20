@@ -143,6 +143,10 @@ public class PreferencesFile {
 
 		updateFile(docu);
 	}
+	
+	public void setFile(File file){
+		this.file = file;
+	}
 
 	public static class Site {
 		private String url;
