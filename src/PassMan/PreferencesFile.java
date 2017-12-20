@@ -1,5 +1,6 @@
 package PassMan;
 
+import java.awt.List;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -75,12 +76,15 @@ public class PreferencesFile {
 
 	}
 
-	public void readFile(Document docu) throws SAXException, IOException, ParserConfigurationException, TransformerException { 
+	public Collection<Site> readFile()
+			throws SAXException, IOException, ParserConfigurationException, TransformerException {
 		// THIS IS ONLY FOR TESTS DONT USE
-		// You can use the below loop to iterate through the XML site and get a list of the sites
-		
+		// You can use the below loop to iterate through the XML site and get a
+		// list of the sites
+
 		Document doc = parseFile();
 		doc.getDocumentElement().normalize();
+		Collection<Site> sites = new ArrayList<Site>();
 
 		NodeList nList = doc.getElementsByTagName("site");
 
@@ -98,9 +102,18 @@ public class PreferencesFile {
 
 				String pass = elem.getElementsByTagName("pass").item(0).getChildNodes().item(0).getTextContent();
 
-				siteList.add(new Site(url, user, pass));
+				sites.add(new Site(url, user, pass));
 			}
 		}
+		return sites;
+	}
+	
+	public List getURLs(Collection<Site> sites) {
+		List urls = new List();
+		for (Site site : sites) {
+			urls.add(site.getUrl());
+		}
+		return urls;
 	}
 
 	public void addSite(String url, String user, String pass)
@@ -129,10 +142,6 @@ public class PreferencesFile {
 		}
 
 		updateFile(docu);
-	}
-	
-	public void setFile(File file){
-		this.file = file;
 	}
 
 	public static class Site {
