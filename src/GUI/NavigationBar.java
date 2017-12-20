@@ -1,10 +1,16 @@
 package GUI;
 
+
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+
+import GUIListeners.GUIListener;
+
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class NavigationBar extends JPanel{
 	private GUI gui;
@@ -15,6 +21,14 @@ public class NavigationBar extends JPanel{
 		JMenuBar menubar = new JMenuBar();
 		JMenu fileMenu = new JMenu("File");
 		JMenuItem newOption = new JMenuItem("New");
+		
+		newOption.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
 		fileMenu.add(newOption);
 		menubar.add(fileMenu);
 		add(menubar);

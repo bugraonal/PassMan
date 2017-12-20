@@ -1,5 +1,19 @@
 package GUIListeners;
 
 public class GUIListener {
-	// Onur do this, thanks
+	public void changePassword(){
+		
+	}
+	
+	public void delete(){
+		
+	}
+	
+	public void addReminder(){
+		
+	}
+	
+	public void addNew(){
+		
+	}
 }

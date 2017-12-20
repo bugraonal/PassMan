@@ -24,7 +24,7 @@ public class GUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("PassMan");
 		setResizable(false);
-		setSize(450, 299);
+		setSize(450, 300);
 		setVisible(true);
 	}
 
