@@ -26,7 +26,7 @@ public class ModifyPanel extends JPanel {
 		add(namePassChangeLabel);
 		
 			JButton namePassChangeButton = new JButton("Modify");
-			namePassChangeButton.addActionListener(new ActionListener() {
+			namePassChangeButton.addActionListener(new ActionListener()) {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 	
@@ -39,7 +39,7 @@ public class ModifyPanel extends JPanel {
 		add(deleteLabel);
 			
 			JButton deleteButton = new JButton("Delete");
-			deleteButton.addActionListener(new ActionListener() {
+			deleteButton.addActionListener(new ActionListener()) {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
@@ -52,7 +52,7 @@ public class ModifyPanel extends JPanel {
 		add(reminderLabel);
 			
 			JButton reminderButton = new JButton("New reminder");
-			reminderButton.addActionListener(new ActionListener() {
+			reminderButton.addActionListener(new ActionListener()) {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
