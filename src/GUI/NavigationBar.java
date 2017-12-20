@@ -25,7 +25,7 @@ public class NavigationBar extends JPanel{
 		newOption.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new PassCreationPopup().setVisible(true);
+				new PassCreationPopup().setVisible(true);;
 				gui.getContentPane().repaint();
 				gui.getContentPane().validate();
 			}

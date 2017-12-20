@@ -40,7 +40,6 @@ public class MainPanel extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
-		panel.setBorder(new EmptyBorder(0, 50, 0, 50));
 		add(panel, BorderLayout.WEST);
 		PreferencesFile pref = new PreferencesFile();
 		ArrayList<String> urlList = pref.getURLs(pref.readFile());
@@ -49,7 +48,9 @@ public class MainPanel extends JPanel {
 		for (int i = 0; i < urlList.size(); i++) {
 			listModel.addElement(urlList.get(i));
 		}
+		panel.setLayout(new BorderLayout(0, 0));
 		JList<String> list = new JList<String>();
+		list.setBorder(new EmptyBorder(0, 15, 0, 15));
 		list.setModel(listModel);
 
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -111,11 +112,5 @@ public class MainPanel extends JPanel {
 		JPanel managementPanel = new ModifyPanel();// link database here too
 		tabbedPane.addTab("Management", null, managementPanel, null);
 
-	}
-
-	public void copyStringToClipboard(String str) { // might be interesting
-		StringSelection stringSelection = new StringSelection(str);
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		clipboard.setContents(stringSelection, null);
 	}
 }
