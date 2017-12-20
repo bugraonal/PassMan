@@ -23,10 +23,11 @@ public class ReminderButtonListener implements ActionListener{
 	public void operation(){
 		
 		manager = new ReminderManager();
-	
+
 		JFrame reminderFrame = new JFrame("Create a reminder");
 		reminderFrame.setLayout(new FlowLayout());
-		
+		reminderFrame.setSize(350,150);
+
 		JTextField user = new JTextField("User");
 		reminderFrame.add(user);
 		

@@ -5,16 +5,10 @@ import javax.swing.JLabel;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.prefs.PreferenceChangeEvent;
-import java.util.prefs.Preferences;
-
 import javax.swing.JButton;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 
+import GUIListeners.ReminderButtonListener;
 import PassMan.PreferencesFile;
 
 public class ModifyPanel extends JPanel {
@@ -62,12 +56,7 @@ public class ModifyPanel extends JPanel {
 		add(reminderLabel);
 			
 			JButton reminderButton = new JButton("New reminder");
-			reminderButton.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-				}
-			});
+			reminderButton.addActionListener(new ReminderButtonListener());
 			add(reminderButton);
 
 	}
