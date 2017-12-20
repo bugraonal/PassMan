@@ -6,7 +6,7 @@ public class PassGen {
 	static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	static SecureRandom rnd = new SecureRandom();
 	
-	private PassGen() {
+	public PassGen() {
 		
 	}
 	
