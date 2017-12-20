@@ -29,7 +29,7 @@ public class PassCreationPopup extends JFrame {
 	private JTextField passwordField;
 
 	public PassCreationPopup() {
-
+		setSize(350,150);
 		panel = new JPanel(new BorderLayout(5, 5));
 		
 		JPanel panel_1 = new JPanel();
@@ -81,6 +81,7 @@ public class PassCreationPopup extends JFrame {
 								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							}
+							dispose();
 					 }
 
 			}
