@@ -1,0 +1,38 @@
+package Tests;
+
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+import java.text.ParseException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
+import org.junit.Test;
+import org.xml.sax.SAXException;
+
+import PassMan.Reminder;
+import PassMan.ReminderManager;
+
+public class ReminderManagerTest {
+
+	@Test
+	public void caninstantiateReminderManager(){
+		ReminderManager RM = new ReminderManager();
+		assertNotNull(RM);
+	}
+		
+	public void addReminderTest() throws SAXException, IOException, ParserConfigurationException, TransformerException, ParseException{
+		String url= "http://example.com";
+		String user="doruk";
+		ReminderManager RM = new ReminderManager();
+		int amount = 5;
+		String type="04.06.2017";
+		RM.addReminder(amount, type, user, url);
+		Reminder R = new Reminder(user,url);
+		assertEquals(RM.getReminders().get(0),R);
+	}
+		
+	
+
+}
